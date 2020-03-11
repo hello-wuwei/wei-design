@@ -1,8 +1,7 @@
 import React from 'react';
-// import { Button } from '../../components/button'
-import Button from '../../../lib/button'
+import Button from '@/components/button'
+// import Button from '../../../lib/button'
 
-console.log(Button)
 const ButtonDoc = () => {
   return (
     <div>

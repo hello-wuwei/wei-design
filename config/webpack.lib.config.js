@@ -10,9 +10,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const autoprefixer = require("autoprefixer")
 
+const { cssLoader, lessLoader, nodeModulesStyleHandle } = require('./styleHandleBase')
+
 const components = {
   button: './src/components/button/index.js',
   list: './src/components/list/index.js',
+  card: './src/components/card/index.js',
   '/': './src/components/index.js'
 }
 
@@ -27,6 +30,12 @@ module.exports = {
     libraryExport: "default",
     library: 'we',
     libraryTarget: 'umd'
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    alias: {
+      "@": path.resolve(__dirname, "../src/")
+    }
   },
   // externals: {
   //   jquery: 'jQuery'
@@ -61,23 +70,26 @@ module.exports = {
         }
       },
       {
-        test: /\.less$/,
+        test: /\.(css|less)$/,
+        exclude:[/node_modules/],
         use: [ 
           // 'style-loader', 
           MiniCssExtractPlugin.loader,
-          'css-loader',    // webpack识别css文件（webpack只识别js代码，需要转化）
+          cssLoader,
           {
             loader: "postcss-loader",
             options: {
               plugins: () =>
-                autoprefixer({
+                autoprefixer({        // 给样式加前缀，解决兼容性问题
                   overrideBrowserslist: ['last 5 version', '>1%', 'ie >=8']
                 })
             }
           },
-          'less-loader'  // 转换less文件样式为css
+          lessLoader
         ]
-      }
+      },
+      // 单独处理node_modules中antd的样式
+      nodeModulesStyleHandle
     ]
   },
   plugins: [
@@ -92,10 +104,10 @@ module.exports = {
     // }),
     new CleanWebpackPlugin(),
     // style样式是通过style-loader预处理，插入到了head标签内，但是我们平常写样式的时候，一定是通过引入外部css文件进行样式引入的(配合rules中的MiniCssExtractPlugin.loader)，即拆分css文件打包
-    // new MiniCssExtractPlugin({
-    //   filename: 'css/[name].[hash].css',
-    //   chunkFilename: 'css/[id].[hash].css',
-    // }),
+    new MiniCssExtractPlugin({
+      filename: '[name]/index.css',
+      // chunkFilename: 'index.css',
+    }),
     // require('autoprefixer')
     // require('autoprefixer')({ overrideBrowserslist: ['last 5 version', '>1%', 'ie >=8'] })
   ],

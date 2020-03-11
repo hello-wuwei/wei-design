@@ -1,4 +1,5 @@
 import React from 'react'
+import './list.less'
 
 const List = ({ mode = 'line', data = [] }) => {
   return (
