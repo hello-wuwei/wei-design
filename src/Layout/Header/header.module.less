@@ -8,6 +8,15 @@
   position: relative;
   z-index: 3;
   :global{
+    .left{
+      .logo{
+        width: 160px;
+        text-align: center;
+        line-height: 64px;
+        font-size: 26px;
+        color: #3c93f7
+      }
+    }
     .right{
       height: 100%;
       ul{
@@ -17,7 +26,8 @@
         li{
           display: flex;
           align-items: center;
-          margin: 0 10px
+          margin: 0 20px;
+          cursor: pointer;
         }
       }
     }

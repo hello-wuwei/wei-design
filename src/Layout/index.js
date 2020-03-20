@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { Switch, Redirect, Route } from 'react-router-dom'
 import { Layout } from 'antd'
-import SiderBar from './SiderBar'
 import LayoutHeader from './Header'
-import MainRouter from './MainRouter'
+import Documents from '@/views/Document'
+import Components from '@/views/Component'
 const { Header, Sider, Content } = Layout
 
 const Frame = () => {
@@ -12,13 +13,14 @@ const Frame = () => {
   }
   return (
     <Layout style={{ height: '100%' }}>
-      <Sider style={{ background: '#fff' }} collapsed={collapsed}><SiderBar collapsed={collapsed} /></Sider>
-      <Layout>
-        <Header style={{ background: '#fff', padding: 0 }}><LayoutHeader collapsed={collapsed} onSwitch={onSwitch} /></Header>
-        <Content style={{ padding: 20, overflowY: 'scroll', background: '#fff' }}>
-          <MainRouter />
-        </Content>
-      </Layout>
+      <Header style={{ background: '#fff', padding: 0 }}><LayoutHeader /></Header>
+      <Content style={{ padding: 20, overflowY: 'scroll', background: '#fff' }}>
+        <Switch>
+          <Redirect path="/" to="/document" exact />
+          <Route path="/document" component={Documents} />
+          <Route path="/component" component={Components} />
+        </Switch>
+      </Content>
     </Layout>
   )
 }
