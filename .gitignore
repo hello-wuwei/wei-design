@@ -8,6 +8,10 @@ node_modules
 # production
 dist
 
+lib
+
+we-design
+
 # misc
 .DS_Store
 

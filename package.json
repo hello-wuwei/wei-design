@@ -1,6 +1,6 @@
 {
-  "name": "weigee",
-  "version": "1.0.11",
+  "name": "we-design",
+  "version": "1.0.0",
   "description": "test-lib",
   "main": "lib/index.js",
   "files": [
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hello-wuwei/webpack-react.git"
+    "url": "git+https://github.com/hello-wuwei/my-ui-library.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hello-wuwei/webpack-react/issues"
+    "url": "https://github.com/hello-wuwei/my-ui-library/issues"
   },
-  "homepage": "https://github.com/hello-wuwei/webpack-react#readme",
+  "homepage": "https://github.com/hello-wuwei/my-ui-library#readme",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",

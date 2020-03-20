@@ -19,3 +19,16 @@ v12.12.0
  npm publish
 ```
 会生成lib目录，即可发布到npm
+
+### 项目安装we-design
+```js
+ npm install we-design --save-dev
+```
+### 项目使用we-design
+```js
+ import { Button } from 'we-design/lib'
+```
+或
+```js
+ import Button from 'we-design/lib/button'
+```
