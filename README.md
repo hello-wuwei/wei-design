@@ -1,5 +1,5 @@
 ## 组件库名称
-[wei-design](http://47.108.142.67:9000/we-design)
+[wei-design](http://47.108.142.67:9000/wei-design)
 
 ## node版本
 v12.12.0
@@ -20,11 +20,11 @@ v12.12.0
 ```
 会生成lib目录，即可发布到npm
 
-### 项目安装we-design
+### 项目安装wei-design
 ```js
  npm install wei-design --save-dev
 ```
-### 项目使用we-design
+### 项目使用wei-design
 ```js
  import { Button } from 'wei-design/lib'
 ```

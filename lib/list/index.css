@@ -1,12 +1,12 @@
-.we-list {
+.wei-list {
   border: 1px solid #f0f0f0;
   border-radius: 4px;
 }
-.we-list li {
+.wei-list li {
   padding: 20px;
   border-bottom: 1px solid #f0f0f0;
 }
-.we-list li:last-child {
+.wei-list li:last-child {
   border-bottom: none;
 }
 

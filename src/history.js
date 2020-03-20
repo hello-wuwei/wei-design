@@ -1,5 +1,5 @@
 import { createBrowserHistory } from 'history'
 
-const history = createBrowserHistory({basename: '/we-design'})
+const history = createBrowserHistory({basename: '/wei-design'})
 
 export default history

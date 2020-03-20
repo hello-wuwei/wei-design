@@ -1,4 +1,4 @@
-.we-button {
+.wei-button {
   padding: 5px 10px;
   background: none;
   border: 1px solid #ccc;
@@ -7,22 +7,22 @@
   outline: none;
   cursor: pointer;
 }
-.we-button-default {
+.wei-button-default {
   background: none;
   border: 1px solid #ccc;
   color: #333;
 }
-.we-button-primary {
+.wei-button-primary {
   background: #3cb1f5;
   border: none;
   color: #fff;
 }
-.we-button-danger {
+.wei-button-danger {
   background: #f15656;
   color: #fff;
   border: none;
 }
-.we-button-dashed {
+.wei-button-dashed {
   background: none;
   border: 1px dashed #ccc;
   color: #333;
