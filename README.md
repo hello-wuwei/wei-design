@@ -1,5 +1,4 @@
 ## 组件库名称
-we-design
 [we-design](http://47.108.142.67:9000/we-design)
 
 ## node版本
