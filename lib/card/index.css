@@ -1,4 +1,6 @@
 .we-card {
   padding: 10px;
+  border: 1px soild #f0f0f0;
+  border-radius: 4px;
 }
 

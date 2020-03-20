@@ -6,7 +6,7 @@ const SiderBar = ({ collapsed }) => {
   return (
     <div className={styles.siderbar}>
       <div className="logo">
-        {!collapsed && 'We-Design'}
+        {!collapsed && 'Wei-Design'}
       </div>
       <Menu />
     </div>

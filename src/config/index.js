@@ -1,4 +1,4 @@
 
 export const libConfig = {
-  cls_pre: 'we'
+  cls_pre: 'wei'
 }
