@@ -9,9 +9,14 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const autoprefixer = require("autoprefixer")
+const { cssLoader, lessLoader, nodeModulesStyleHandle } = require('./styleHandleBase')
 
 module.exports = merge(common, {
   mode: 'production',
+  output: {
+    publicPath: '/we-design/',
+    filename: 'js/[name].[chunkhash:8].bundle.js' // 给打包出的js文件换个不确定名字：这个操作是为了防止因为浏览器缓存带来的业务代码更新，而页面却没变化的问题，你想想看，假如客户端请求js文件的时候发现名字是一样的，那么它很有可能不发新的数据包，而直接用之前缓存的文件，当然，这和缓存策略有关。
+  },
   module: {
     rules: [
       /* postcss 一种对css编译的工具，类似babel对js的处理，常见的功能如：
@@ -23,11 +28,12 @@ module.exports = merge(common, {
       */
       /* 遇到后缀为.css的文件，webpack先用css-loader加载器去解析这个文件，遇到“@import”等语句就将相应样式文件引入（所以如果没有css-loader，就没法解析这类语句），最后计算完的css，将会使用style-loader生成一个内容为最终解析完的css代码的style标签，放到head标签里*/
       {
-        test: /\.less$/,
+        test: /\.(less|css)$/,
+        exclude:[/node_modules/],
         use: [ 
           // 'style-loader', 
           MiniCssExtractPlugin.loader,
-          'css-loader',    // webpack识别css文件（webpack只识别js代码，需要转化）
+          cssLoader,
           {
             loader: "postcss-loader",
             options: {
@@ -37,9 +43,11 @@ module.exports = merge(common, {
                 })
             }
           },
-          'less-loader'  // 转换less文件样式为css
+          lessLoader
         ]
-      }
+      },
+      // 单独处理node_modules中antd的样式
+      nodeModulesStyleHandle
     ]
   },
   plugins: [
@@ -80,11 +88,6 @@ module.exports = merge(common, {
       maxSize: 0,
       minChunks: 1,
       cacheGroups: {   // cacheGroups对象，定义了需要被抽离的模块，对拆分的文件进行缓存配置,
-        aliIcons: {
-          test: "aliIcons",  // test属性是比较关键的一个值，他可以是一个字符串，也可以是正则表达式，还可以是函数。如果定义的是字符串，会匹配入口模块名称，会从其他模块中把包含这个模块的抽离出来
-          name: "aliIcons",  // name是抽离后生成的名字，和入口文件模块名称相同，这样抽离出来的新生成的aliIcons模块会覆盖被抽离的aliIcons模块，虽然他们都叫aliIcons
-          enforce: true
-        },
         vendors: {   // 它的test设置为 /node_modules/ 表示只筛选从node_modules文件夹下引入的模块，所以所有第三方模块才会被拆分出来
           priority: -10,
           test: /node_modules/,

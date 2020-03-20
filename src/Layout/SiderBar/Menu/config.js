@@ -7,6 +7,10 @@ const list = [
   {
     path: '/list',
     name: '列表'
+  },
+  {
+    path: '/card',
+    name: '卡片'
   }
 ]
 

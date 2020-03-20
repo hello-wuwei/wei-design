@@ -15,7 +15,7 @@ const Frame = () => {
       <Sider style={{ background: '#fff' }} collapsed={collapsed}><SiderBar collapsed={collapsed} /></Sider>
       <Layout>
         <Header style={{ background: '#fff', padding: 0 }}><LayoutHeader collapsed={collapsed} onSwitch={onSwitch} /></Header>
-        <Content style={{ padding: 20, overflowY: 'scroll' }}>
+        <Content style={{ padding: 20, overflowY: 'scroll', background: '#fff' }}>
           <MainRouter />
         </Content>
       </Layout>

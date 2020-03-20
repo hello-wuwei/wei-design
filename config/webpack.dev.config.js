@@ -9,6 +9,10 @@ const { cssLoader, lessLoader, nodeModulesStyleHandle } = require('./styleHandle
 
 module.exports = merge(common, {
   mode: 'development',
+  output: {
+    publicPath: '/',
+    filename: 'js/[name].[hash:8].bundle.js',
+  },
   module: {
     rules: [
       {
@@ -24,15 +28,12 @@ module.exports = merge(common, {
       nodeModulesStyleHandle
     ]
   },
-  output: {
-    filename: 'js/[name].[hash:8].bundle.js',
-  },
   devServer: {
     contentBase: path.resolve(__dirname, '../dist'),
     historyApiFallback: true,    // 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html
     // host: process.env.HOST || '0.0.0.0',
     open: true,
-    port: 9000,
+    port: 8000,
     compress: true,
     hot: true,
     proxy: setupProxy

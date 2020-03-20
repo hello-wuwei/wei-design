@@ -1,18 +1,20 @@
 import React from 'react'
-import { Icon, Avatar } from 'antd'
-import { QqOutlined } from '@ant-design/icons';
+import { GithubOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import styles from './header.module.less'
 
 const Header = ({ collapsed, onSwitch }) => {
+
   return (
     <div className={styles.header}>
       <div className="left">
-        <Icon style={{ fontSize: 20 }} type={collapsed ? 'menu-unfold' : 'menu-fold'} onClick={onSwitch} />
+        <span onClick={onSwitch} style={{ fontSize: 20 }}>
+          { collapsed ?  <MenuFoldOutlined /> : <MenuUnfoldOutlined /> }
+        </span>
       </div>
       <div className="right">
         <ul>
           <li>
-            <QqOutlined />
+            <GithubOutlined style={{ fontSize: 36 }} onClick={() => window.open('https://github.com/hello-wuwei/my-ui-library', '_blank')} />
           </li>
         </ul>
       </div>

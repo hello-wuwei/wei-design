@@ -1,0 +1,33 @@
+@import '../../config/style/config.less';
+
+:global(.@{prefix}){
+  &-button{
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid #ccc;
+    color: #333;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+  }
+  &-button-default{
+    background: none;
+    border: 1px solid #ccc;
+    color: #333
+  }
+  &-button-primary{
+    background: #3cb1f5;
+    border: none;
+    color: #fff
+  }
+  &-button-danger{
+    background: #f15656;
+    color: #fff;
+    border: none;
+  }
+  &-button-dashed{
+    background: none;
+    border: 1px dashed #ccc;
+    color: #333
+  }
+}
