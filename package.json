@@ -55,7 +55,7 @@
     "antd": "^4.0.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.4.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-markdown": "^4.3.1",
